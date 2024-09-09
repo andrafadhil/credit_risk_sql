@@ -21,8 +21,8 @@ WHERE person_emp_length > 47
 -- What is the performance distribution of the loan portfolio, in terms of repayment and default?
 SELECT 
 	CASE 
-		WHEN loan_status = '1' THEN 'default'
-		WHEN loan_status = '0' THEN 'non-default'
+	    WHEN loan_status = '1' THEN 'default'
+	    WHEN loan_status = '0' THEN 'non-default'
 	END AS customer_history,
 	COUNT(*) AS total_loans,
 	ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM credit_risk), 2) AS presentase
@@ -122,8 +122,8 @@ ORDER BY default_rate DESC;
 -- How likely is a customer with a history of default to default again?
 SELECT 
 	CASE 
-		WHEN cb_person_default_on_file = 'Y' THEN 'default'
-		WHEN cb_person_default_on_file = 'N' THEN 'non-default'
+	    WHEN cb_person_default_on_file = 'Y' THEN 'default'
+	    WHEN cb_person_default_on_file = 'N' THEN 'non-default'
 	END AS customer_history,
 	COUNT(*) AS total_loans,
 	ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM credit_risk), 2) AS presentase
